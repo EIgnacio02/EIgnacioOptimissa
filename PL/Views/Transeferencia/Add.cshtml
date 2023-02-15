@@ -1,0 +1,54 @@
+﻿@model ML.Tranferencia
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+<h1>Tranferencia</h1>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Add", "Transeferencia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.FromAccount)
+                        @Html.TextBoxFor(model=>model.FromAccount, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+
+                            @Html.LabelFor(model => model.ToAccount)
+                        @Html.TextBoxFor(model=>model.ToAccount, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+
+                            @Html.LabelFor(model => model.Amount)
+                            @Html.TextBoxFor(model=>model.Amount, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-1">
+                                <input type="submit" value="Guardar" class="btn btn-success" />
+                            </div>
+                            <div class="col-1">
+                            @Html.ActionLink("Regresar","GetAll","Transeferencia", htmlAttributes: new { @class = "btn btn-danger col-auto"})
+                            </div>
+                        </div>
+                    </div>
+
+            }
+        </div>
+    </div>
+</div>
+

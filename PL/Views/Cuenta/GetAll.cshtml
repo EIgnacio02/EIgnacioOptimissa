@@ -1,0 +1,34 @@
+﻿@model ML.Cuenta
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAll</h1>
+<div>
+    @Html.ActionLink("Agregar","Form","Cuenta",htmlAttributes: new {@class="btn btn-success"})
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Buscar</th>
+            <th scope="col">Account</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Owerns</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ML.Cuenta cuenta in Model.CuentaList)
+        {
+            <tr>
+                <td><a class="btn btn-warning" href="@Url.Action("Form","Cuenta",new {account=cuenta.account})"> <i class="bi bi-pencil-square"></i></a> </td>
+                <td>@cuenta.account</td>
+                <td>@cuenta.balance</td>
+                <td>@cuenta.Owners</td>
+                <td>@cuenta.Fecha</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
